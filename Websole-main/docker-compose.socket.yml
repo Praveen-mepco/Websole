@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  socket:
+    networks:
+      - websole-networks
+    build: ./socket
+    env_file:
+      - socket/.env
+    ports:
+      - ${CLIENT_SOCKET}:${CLIENT_SOCKET}
+      - ${EXECUTOR_SOCKET}:${EXECUTOR_SOCKET}
+
+networks:
+  websole-networks:
+    external: false
+    name: websole-networks
